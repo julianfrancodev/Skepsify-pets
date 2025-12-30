@@ -1,0 +1,7 @@
+{
+  "name": "skepsify-pets",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
