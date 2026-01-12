@@ -1,3 +1,19 @@
-<p>
-  next-appointmets works!
-</p>
+<div class="next-appointments">
+  <h3 class="section-title">Próximas Citas</h3>
+
+  <div class="appointments-scroll">
+    <div class="appointment-card" *ngFor="let appointment of appointments" (click)="onAppointmentClick(appointment)">
+      <div class="card-header">
+        <div class="icon-wrapper" [ngClass]="appointment.iconType">
+          <ion-icon [name]="appointment.icon"></ion-icon>
+        </div>
+        <span class="date-badge">{{ appointment.date }}</span>
+      </div>
+      <p class="appointment-title">{{ appointment.title }}</p>
+      <div class="appointment-details">
+        <ion-icon name="time-outline"></ion-icon>
+        <p class="details-text">{{ appointment.time }} • {{ appointment.location }}</p>
+      </div>
+    </div>
+  </div>
+</div>

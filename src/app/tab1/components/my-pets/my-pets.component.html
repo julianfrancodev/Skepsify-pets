@@ -1,3 +1,33 @@
-<p>
-  my-pets works!
-</p>
+<div class="my-pets">
+  <div class="section-header">
+    <h2 class="section-title">Mis Mascotas</h2>
+    <button class="view-all-btn" (click)="onViewAll()">Ver todas</button>
+  </div>
+
+  <div class="pets-list">
+    <div class="pet-card" *ngFor="let pet of pets" (click)="onPetClick(pet)">
+      <div class="pet-content">
+        <div class="pet-info">
+          <div class="status-badge" [ngClass]="pet.statusType">
+            <span class="status-dot"></span>
+            {{ pet.status }}
+          </div>
+          <p class="pet-name">{{ pet.name }}</p>
+          <p class="pet-details">{{ pet.breed }} • {{ pet.age }}</p>
+        </div>
+        <button class="history-btn" (click)="onViewHistory(pet, $event)">
+          <span class="btn-text">Ver historial</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="pet-image" [style.background-image]="'url(' + pet.image + ')'"></div>
+    </div>
+
+    <button class="add-pet-card" (click)="onAddPet()">
+      <div class="add-icon">
+        <ion-icon name="add"></ion-icon>
+      </div>
+      <span class="add-text">Agregar nueva mascota</span>
+    </button>
+  </div>
+</div>

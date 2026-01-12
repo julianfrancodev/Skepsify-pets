@@ -1,3 +1,17 @@
-<p>
-  user-header works!
-</p>
+<div class="user-header">
+  <div class="user-info">
+    <div class="avatar-wrapper">
+      <div class="avatar" [style.background-image]="'url(' + userAvatar + ')'"></div>
+      <div class="status-indicator"></div>
+    </div>
+    <div class="user-details">
+      <span class="greeting">Bienvenida de nuevo,</span>
+      <h2 class="username">{{ userName || 'Invitada' }}</h2>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="notification-btn" (click)="onNotificationClick()">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </button>
+  </div>
+</div>
