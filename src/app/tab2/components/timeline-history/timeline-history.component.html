@@ -1,3 +1,56 @@
-<p>
-  timeline-history works!
-</p>
+<div class="timeline-container">
+  <!-- Próximos Eventos -->
+  <h3 class="section-title">Próximos Eventos</h3>
+
+  <div class="timeline-grid">
+    <ng-container *ngFor="let event of upcomingEvents; let last = last">
+      <div class="timeline-icon-column">
+        <div class="icon-wrapper" [ngClass]="event.iconType">
+          <ion-icon [name]="event.icon"></ion-icon>
+        </div>
+        <div class="timeline-line" *ngIf="!last"></div>
+      </div>
+
+      <div class="timeline-content">
+        <div class="event-card" [class.hoverable]="true">
+          <div class="card-header">
+            <p class="event-title">{{ event.title }}</p>
+            <span class="status-badge" [ngClass]="event.statusType">{{ event.status }}</span>
+          </div>
+          <p class="event-date">{{ event.date }}</p>
+          <div class="event-location" *ngIf="event.location">
+            <ion-icon name="location-outline"></ion-icon>
+            <span>{{ event.location }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Divisor de secciones -->
+    <div class="section-divider">
+      <h3 class="section-title">Historial Pasado</h3>
+    </div>
+
+    <!-- Historial Pasado -->
+    <ng-container *ngFor="let event of pastEvents; let i = index; let last = last">
+      <div class="timeline-icon-column">
+        <div class="connector-top" *ngIf="i === 0"></div>
+        <div class="icon-wrapper" [ngClass]="event.iconType">
+          <ion-icon [name]="event.icon"></ion-icon>
+        </div>
+        <div class="timeline-line" [class.gradient]="last" *ngIf="!last || last"></div>
+      </div>
+
+      <div class="timeline-content" [class.last-item]="last">
+        <div class="event-card" [class.past]="true">
+          <div class="card-header">
+            <p class="event-title">{{ event.title }}</p>
+            <span class="status-badge" [ngClass]="event.statusType">{{ event.status }}</span>
+          </div>
+          <p class="event-date">{{ event.date }}</p>
+          <p class="event-description" *ngIf="event.description">{{ event.description }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

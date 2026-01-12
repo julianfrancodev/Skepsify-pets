@@ -1,0 +1,102 @@
+.pets-list-container {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  padding-top: 0.5rem;
+}
+
+.pets-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 1rem;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgb(243, 244, 246);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.pet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-bottom: 0.4375rem;
+  padding-top: 0.625rem;
+  min-width: 64px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.active {
+    border-bottom-color: #34D399;
+    opacity: 1;
+
+    .avatar-wrapper {
+      border-color: #34D399;
+    }
+
+    .avatar {
+      filter: grayscale(0%);
+      transform: scale(1);
+    }
+
+    .pet-name {
+      color: rgb(31, 41, 55);
+    }
+  }
+}
+
+.avatar-wrapper {
+  position: relative;
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.pet-item:not(.active) .avatar-wrapper:hover {
+  border-color: rgb(226, 232, 240);
+}
+
+.avatar {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  aspect-ratio: 1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  filter: grayscale(50%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.pet-item.active .avatar,
+.pet-item:hover .avatar {
+  transform: scale(1.05);
+}
+
+.pet-name {
+  color: rgb(107, 114, 128);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.015em;
+  margin: 0;
+  transition: color 0.2s ease;
+}

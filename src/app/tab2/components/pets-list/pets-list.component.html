@@ -1,3 +1,14 @@
-<p>
-  pets-list works!
-</p>
+<div class="pets-list-container">
+  <div class="pets-scroll">
+    <button
+      class="pet-item"
+      *ngFor="let pet of pets"
+      [class.active]="pet.id === selectedPetId"
+      (click)="onPetSelect(pet)">
+      <div class="avatar-wrapper">
+        <div class="avatar" [style.background-image]="'url(' + pet.image + ')'"></div>
+      </div>
+      <p class="pet-name">{{ pet.name }}</p>
+    </button>
+  </div>
+</div>
