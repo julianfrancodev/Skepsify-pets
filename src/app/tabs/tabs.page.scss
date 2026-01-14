@@ -1,6 +1,6 @@
 
 ion-tab-bar {
-  --background: rgba(255, 255, 255, 0.85);
+  --background: rgba(255, 255, 255, 0.7);
   --color: #617f89;
   --color-selected: #13b6ec;
   --border: 0;
@@ -9,9 +9,77 @@ ion-tab-bar {
   left: 0;
   right: 0;
   margin: 16px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+
+  // Liquid Glass Effect
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+  // Multi-layer shadows for depth
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    0 4px 16px 0 rgba(31, 38, 135, 0.1),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.05);
+
+  // Glass border effect
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  // Subtle gradient overlay
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+}
+
+// Enhanced tab button styles
+ion-tab-button {
+  --color: #617f89;
+  --color-selected: #13b6ec;
+  --ripple-color: rgba(19, 182, 236, 0.2);
+
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Active state with glass effect
+  &.tab-selected {
+    ion-icon,
+    ion-label {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 2px 4px rgba(19, 182, 236, 0.3));
+    }
+  }
+
+  // Hover effect
+  &:hover {
+    ion-icon,
+    ion-label {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Dark mode liquid glass
+@media (prefers-color-scheme: dark) {
+  ion-tab-bar {
+    --background: rgba(16, 29, 34, 0.7);
+
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+    box-shadow:
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      0 4px 16px 0 rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: linear-gradient(
+      135deg,
+      rgba(31, 41, 55, 0.8) 0%,
+      rgba(17, 24, 39, 0.7) 100%
+    );
+  }
 }
