@@ -1,3 +1,21 @@
-<p>
-  profile-main-options works!
-</p>
+<div class="options-container">
+  <!-- Menu List -->
+  <div class="menu-list">
+    <button class="option-item" *ngFor="let option of menuOptions" (click)="onOptionClick(option)">
+      <div class="option-content">
+        <div class="icon-wrapper">
+          <ion-icon [name]="option.icon" class="option-icon"></ion-icon>
+        </div>
+        <span class="option-label">{{option.label}}</span>
+      </div>
+      <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+    </button>
+  </div>
+
+  <!-- Log Out Action -->
+  <div class="logout-section">
+    <button class="logout-btn" (click)="onLogout()">
+      Cerrar Sesión
+    </button>
+  </div>
+</div>

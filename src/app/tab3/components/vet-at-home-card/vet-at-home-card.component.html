@@ -1,3 +1,28 @@
-<p>
-  vet-at-home-card works!
-</p>
+<div class="card-container">
+  <div class="card-wrapper">
+    <!-- Image Section -->
+    <div class="image-section">
+      <div class="image-background" [style.background-image]="'url(' + imageUrl + ')'">
+        <!-- Price Badge -->
+        <div class="price-badge">
+          From ${{price}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+      <div class="text-content">
+        <div>
+          <h3 class="title">{{title}}</h3>
+          <p class="description">{{description}}</p>
+        </div>
+      </div>
+      <div class="action-section">
+        <ion-button expand="block" class="book-button" (click)="onBookNow()">
+          Book Now
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</div>

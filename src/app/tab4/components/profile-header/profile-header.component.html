@@ -1,3 +1,13 @@
-<p>
-  profile-header works!
-</p>
+<div class="profile-header-container">
+  <div class="avatar-section">
+    <div class="avatar-wrapper" (click)="onEditPhoto()">
+      <div class="avatar-image" [style.background-image]="'url(' + userPhoto + ')'">
+      </div>
+      <div class="edit-badge">
+        <ion-icon name="create-outline" class="edit-icon"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <h1 class="user-name">{{userName}}</h1>
+  <p class="user-description">{{userDescription}}</p>
+</div>

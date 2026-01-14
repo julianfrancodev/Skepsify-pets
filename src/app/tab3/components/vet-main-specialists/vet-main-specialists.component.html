@@ -1,3 +1,11 @@
-<p>
-  vet-main-specialists works!
-</p>
+<div class="specialists-container">
+  <h3 class="section-title">Popular Specialists</h3>
+  <div class="specialists-scroll">
+    <div class="specialist-item" *ngFor="let specialist of specialists" (click)="onSpecialistClick(specialist)">
+      <div class="avatar-wrapper" [class.featured]="specialist.featured">
+        <div class="avatar-image" [style.background-image]="'url(' + specialist.imageUrl + ')'"></div>
+      </div>
+      <span class="specialist-name">{{specialist.name}}</span>
+    </div>
+  </div>
+</div>

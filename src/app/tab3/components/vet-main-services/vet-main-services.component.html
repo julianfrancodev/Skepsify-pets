@@ -1,3 +1,17 @@
-<p>
-  vet-main-services works!
-</p>
+<div class="services-container">
+  <!-- Section Header -->
+  <div class="header-section">
+    <h3 class="section-title">Our Services</h3>
+    <button class="see-all-btn" (click)="onSeeAll()">See All</button>
+  </div>
+
+  <!-- Service Grid -->
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let service of services" (click)="onServiceClick(service)">
+      <div class="icon-wrapper">
+        <ion-icon [name]="service.icon" class="service-icon"></ion-icon>
+      </div>
+      <h2 class="service-name">{{service.name}}</h2>
+    </div>
+  </div>
+</div>

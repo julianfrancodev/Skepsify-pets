@@ -1,3 +1,19 @@
-<p>
-  address-bar works!
-</p>
+<div class="address-bar-container">
+  <div class="content-wrapper">
+    <div class="location-section">
+      <ion-icon name="location" class="location-icon"></ion-icon>
+      <div class="address-info">
+        <p class="delivering-label">Delivering to</p>
+        <div class="address-row">
+          <h2 class="address-text">{{address}}</h2>
+          <ion-icon name="chevron-down" class="dropdown-icon"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <div class="actions-section">
+      <button class="notification-btn" (click)="openNotifications()">
+        <ion-icon name="notifications-outline" class="notification-icon"></ion-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+:host {
+  display: block;
+}
+
+.specialists-container {
+  padding: 0 16px;
+  margin-top: 8px;
+}
+
+.section-title {
+  color: #0d181b;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px 0;
+}
+
+.specialists-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+
+  // Hide scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.specialist-item {
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.avatar-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 4px;
+  transition: border-color 0.2s;
+
+  &.featured {
+    border-color: #13b6ec;
+  }
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.specialist-name {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  color: #0d181b;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+  .section-title,
+  .specialist-name {
+    color: #ffffff;
+  }
+}
